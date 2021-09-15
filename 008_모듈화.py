@@ -1,5 +1,6 @@
 import pygame as pg
 import random
+
 pg.init()
 
 화면가로길이 = 600
@@ -109,12 +110,12 @@ while True:
             마우스 = pg.mouse.get_pos()
 
             for 포인트 in 물고기정답위치:
-                if 포인트.collidepoint(마우스):
-                    물고기정답위치.remove(포인트)
-                    잡은물고기 += 1
-                    화면.blit(배경이미지, (0, 0))
+                if 포인트.collidepoint(마우스): # 물고기정답위치 좌표와 클릭위치와 같으면
+                    물고기정답위치.remove(포인트) # 물고기정답위치에서 포인트 삭제(물고기 개수 감소)
+                    잡은물고기 += 1 # 잡은 물고기 1추가
+                    화면.blit(배경이미지, (0, 0)) # 배경 출력
 
-                    게임판그리기()
+                    게임판그리기() #게임판그리기 함수 호출
 
                     if len(물고기정답위치) == 0:
                         #시작시간 = pg.time.get_ticks()
@@ -125,4 +126,4 @@ while True:
 
                     물고기위치구하기(len(물고기정답위치),1)
                     
-                pg.display.update()
+                pg.display.update() #화면 업데이트
