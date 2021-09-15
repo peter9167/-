@@ -91,16 +91,16 @@ def 요소그리기():
 
 게임판그리기()
 물고기위치구하기(5,0)
-pg.display.update()
+pg.display.update() # 화면 업데이트
 
 while True:
-    경과시간 = round((pg.time.get_ticks() - 시작시간) / 1000, 1)
+    경과시간 = round((pg.time.get_ticks() - 시작시간) / 1000, 1) # 경과시간 측정
 
-    if 경과시간 == 10 or 클릭횟수 == 0:
-        게임종료()
+    if 경과시간 == 10 or 클릭횟수 == 0: # 경과시간이 10초거나 클릭횟수가 0이면 게임종료
+        게임종료() #게임종료 함수 호출
 
-    요소그리기()
-    pg.display.update()
+    요소그리기() # 요소그리기 함수 호출
+    pg.display.update() #화면 업데이트
 
     for 이벤트 in pg.event.get():
         if 이벤트.type == pg.QUIT:
